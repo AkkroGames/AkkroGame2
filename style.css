@@ -1,0 +1,145 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: white;
+}
+
+/* Space background */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #1a1a1a, #000) no-repeat;
+  z-index: -2;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300%;
+  height: 300%;
+  background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="2" cy="3" r="1" fill="white" /><circle cx="50" cy="10" r="1" fill="white" /><circle cx="25" cy="90" r="1" fill="white" /><circle cx="80" cy="70" r="1" fill="white" /><circle cx="95" cy="50" r="0.5" fill="white" /><circle cx="40" cy="30" r="1.5" fill="white" /></svg>') repeat;
+  animation: starMove 100s linear infinite;
+  z-index: -1;
+}
+
+@keyframes starMove {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, -50%, 0);
+  }
+}
+
+#menu-container, #game-container, #difficulty-container, #shop-container {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-container.active, #game-container.active, #difficulty-container.active, #shop-container.active {
+  display: flex;
+}
+
+.button {
+  width: 200px;
+  padding: 10px 20px;
+  margin: 10px;
+  background-color: #004e92;
+  color: white;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0 0 10px 2px rgba(0, 78, 146, 0.7);
+}
+
+.button:hover {
+  background-color: #002f5d;
+}
+
+.player {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background-color: cyan;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 0 10px 2px cyan;
+}
+
+.bullet {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background-color: yellow;
+  box-shadow: 0 0 10px 2px yellow;
+}
+
+.golden-bullet {
+  background-color: gold;
+  box-shadow: 0 0 15px 5px gold;
+}
+
+.asteroid {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px red;
+  animation: spin 4s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+#score,
+#lives,
+#level {
+  position: absolute;
+  font-size: 20px;
+}
+
+#score {
+  top: 10px;
+  left: 10px;
+}
+
+#lives {
+  top: 10px;
+  right: 10px;
+}
+
+#level {
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Shooter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Main menu -->
+  <div id="menu-container" class="active">
+    <h1>Space Shooter</h1>
+    <button class="button" onclick="openDifficultyMenu()">Play</button>
+    <button class="button" onclick="openShop()">Shop</button>
+    <div class="score-label">Your score: <span id="saved-score">0</span></div>
+    <button class="button" onclick="openSettings()">Settings</button>
+  </div>
+
+  <!-- Difficulty selection menu -->
+  <div id="difficulty-container">
+    <h1>Select difficulty</h1>
+    <button class="button" onclick="startGame('easy')">Easy</button>
+    <button class="button" onclick="startGame('normal')">Normal</button>
+    <button class="button" onclick="startGame('hard')">Hard</button>
+    <button class="button" onclick="returnToMenu()">Back</button>
+  </div>
+
+  <!-- Shop -->
+  <div id="shop-container">
+    <h1>Shop</h1>
+    <button class="button" onclick="buyUpgrade('doubleBullets')">Double bullets (50 points)</button>
+    <button class="button" onclick="buyUpgrade('homingBullets')">Homing bullets (150 points)</button>
+    <button class="button" onclick="buyUpgrade('doubleSpeed')">2x Speed (25 points)</button>
+    <button class="button" onclick="buyUpgrade('goldenBullet')">Golden bullet (333 points)</button>
+    <button class="button" onclick="returnToMenu()">Back</button>
+  </div>
+
+  <!-- Game field -->
+  <div id="game-container">
+    <div id="player" class="player"></div>
+    <div id="score">Score: 0</div>
+    <div id="lives">Lives: 3</div>
+    <div id="level">Level: 1</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
